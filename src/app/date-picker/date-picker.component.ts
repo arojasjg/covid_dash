@@ -1,3 +1,4 @@
+import { FormControl } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class DatePickerComponent implements OnInit {
 
-  @Output() notifyOnDateChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() notifyOnDateChange: EventEmitter<Date> = new EventEmitter<Date>();
+
+  date: FormControl = new FormControl(new Date());
 
   constructor() { }
 
@@ -17,12 +20,10 @@ export class DatePickerComponent implements OnInit {
   }
 
   onDateInput(action: string, event: any) {
-    //console.log('on date input ', event.target.value)
     const { value } = event.target
   }
 
   onDateChange(action: string, event: any) {
-    //console.log('on date change ',  event.target.value)
     const { value } = event.target
     this.notifyOnDateChange.emit(value);
   }

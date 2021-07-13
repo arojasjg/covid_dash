@@ -1,3 +1,4 @@
+import { formatDateAsString } from './../utils';
 import { DataService } from './data.service';
 import { Component, Input } from '@angular/core';
 
@@ -13,7 +14,7 @@ export class AppComponent {
     public dataService: DataService
   ) { }
 
-  onDateChange(date: string) {
-    this.dataService.selectedDate = date;
+  ngOnInit() {
+
   }
 }

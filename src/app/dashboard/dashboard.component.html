@@ -1,3 +1,33 @@
-<pre>
-  Selected Date: {{dataService.selectedDate}}
-</pre>
+<mat-grid-list cols="10" rowHeight="100px">
+  <mat-grid-tile
+      [colspan]="6"
+      [rowspan]="1"
+      [style.background]="'lightblue'">
+      <app-tabs></app-tabs>
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+      [style.background]="'lightblue'">
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="3"
+      [rowspan]="1"
+      [style.background]="'lightgreen'">
+      <div>
+        <app-date-picker (notifyOnDateChange)="onDateChange($event)"></app-date-picker>
+      </div>
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="6"
+      [rowspan]="4"
+      [style.background]="'lightpink'">
+      <p>country cards</p>
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="4"
+      [style.background]="'snow'">
+      <p>global stats</p>
+  </mat-grid-tile>
+</mat-grid-list>
