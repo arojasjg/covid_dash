@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { formatDateAsString } from './../utils';
+import { DataService } from './data.service';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'covid-dash';
+
+  constructor(
+    public dataService: DataService
+  ) { }
+
+  ngOnInit() {
+
+  }
 }
