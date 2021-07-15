@@ -1,6 +1,5 @@
-import { formatDateAsString } from './../utils';
 import { DataService } from './data.service';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

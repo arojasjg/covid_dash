@@ -1,6 +1,9 @@
 import { FormControl } from '@angular/forms';
-import { EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { Component, OnInit, Output } from '@angular/core';
+import { Action, StoreService } from '../services/store.service';
+import { AppState } from 'src/types';
+import { formatDateAsString } from 'src/utils';
 
 @Component({
   selector: 'app-date-picker',
@@ -13,10 +16,14 @@ export class DatePickerComponent implements OnInit {
 
   date: FormControl = new FormControl(new Date());
 
-  constructor() { }
+  constructor(public store: StoreService<AppState>) { }
 
   ngOnInit(): void {
-
+    this.store.dispatch(new Action('SET',
+      {
+        selectedDate: formatDateAsString(new Date())
+      }
+    ))
   }
 
   onDateInput(action: string, event: any) {
